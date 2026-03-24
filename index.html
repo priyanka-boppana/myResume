@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyanka Boppana — Senior Java Backend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --mid: #5a5a5a;
+    --light: #9a9a9a;
+    --rule: #e2e2e2;
+    --accent: #1a3a5c;
+    --bg: #fafaf8;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    padding: 60px 0 48px;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 54px);
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .title {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 13.5px;
+    color: var(--mid);
+  }
+
+  .contact-row a {
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-row a:hover { color: var(--accent); }
+
+  .contact-row span::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--light);
+    margin-right: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* ─── MAIN ─── */
+  main { padding: 56px 0 80px; }
+
+  section {
+    margin-bottom: 52px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  section:nth-child(1) { animation-delay: 0.15s; }
+  section:nth-child(2) { animation-delay: 0.25s; }
+  section:nth-child(3) { animation-delay: 0.35s; }
+  section:nth-child(4) { animation-delay: 0.45s; }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ─── SUMMARY ─── */
+  .summary {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--mid);
+    max-width: 660px;
+  }
+
+  /* ─── SKILLS TABLE ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .skill-row {
+    display: contents;
+  }
+
+  .skill-row:not(:last-child) .skill-cat,
+  .skill-row:not(:last-child) .skill-vals {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .skill-cat {
+    background: #f5f5f3;
+    padding: 11px 16px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .skill-vals {
+    background: var(--white);
+    padding: 11px 16px;
+    font-size: 13.5px;
+    color: var(--mid);
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .job { margin-bottom: 36px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+
+  .company {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+  }
+
+  .period {
+    font-size: 12px;
+    color: var(--light);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .role-line {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .role-line .location {
+    font-weight: 300;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--light);
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  ul.bullets li {
+    padding-left: 18px;
+    position: relative;
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  ul.bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+    font-size: 12px;
+    top: 2px;
+  }
+
+  /* ─── EDUCATION (if needed, placeholder styling) ─── */
+
+  /* ─── ANIMATION ─── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: none; }
+  }
+
+  /* ─── DIVIDER ─── */
+  .job + .job { padding-top: 32px; border-top: 1px solid var(--rule); }
+
+  /* ─── PRINT ─── */
+  @media print {
+    header, section { opacity: 1; transform: none; animation: none; }
+    body { background: white; font-size: 12px; }
+    .name { font-size: 32px; }
+  }
+
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-cat { border-bottom: none !important; padding-bottom: 4px; }
+    .job-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1 class="name">Priyanka Boppana</h1>
+    <p class="title">Senior Java Backend Developer</p>
+    <div class="contact-row">
+      <span><a href="mailto:priyankaboppana93@gmail.com">priyankaboppana93@gmail.com</a></span>
+      <span><a href="tel:+16149558474">+1 (614) 955-8474</a></span>
+      <span>Dallas, TX</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- Summary -->
+    <section>
+      <p class="section-label">Profile</p>
+      <p class="summary">Java Backend Developer with over 8 years of experience specializing in the design, development, and deployment of high-performance enterprise applications. Expert in Java 17 and Spring Boot microservices architecture, with a proven track record of migrating legacy systems and integrating complex third-party partner APIs. Deep expertise in Cloud Computing (AWS/Azure) and both SQL and NoSQL data modeling. Strong advocate for Clean Code, TDD, and automated CI/CD pipelines.</p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <p class="section-label">Technical Skills</p>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <div class="skill-cat">Languages</div>
+          <div class="skill-vals">Java 17, Java 8, Core Java (Multithreading, Streams), Scala, PL/SQL</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-cat">Frameworks</div>
+          <div class="skill-vals">Spring Boot, Spring Cloud, Spring Security, Hibernate, JUnit, Mockito</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-cat">Cloud</div>
+          <div class="skill-vals">AWS (ECS, Lambda, EC2, S3), Azure (Functions, App Services, Monitor)</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-cat">Databases</div>
+          <div class="skill-vals">MongoDB, DynamoDB, NoSQL Workbench, Oracle, MySQL, PostgreSQL</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-cat">API & Integration</div>
+          <div class="skill-vals">Apigee, Swagger/OpenAPI, FeignClient, RestTemplate, Bearer Tokens, OAuth2</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-cat">DevOps / CI-CD</div>
+          <div class="skill-vals">Jenkins, GitLab CI, GitHub, SVN, Maven, Docker</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-cat">Frontend</div>
+          <div class="skill-vals">Angular (8–11), TypeScript, JavaScript, React.js, HTML5, CSS3, Bootstrap</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-cat">Tools</div>
+          <div class="skill-vals">JIRA, Confluence, SourceTree, GitHub Desktop, AYS Incident Management</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <p class="section-label">Experience</p>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">Verizon</span>
+          <span class="period">March 2021 – Present</span>
+        </div>
+        <p class="role-line">Senior Java Developer <span class="location">Ashburn, VA</span></p>
+        <ul class="bullets">
+          <li>Modernized legacy modules by migrating from Java 8 to Java 17, leveraging advanced language features for improved performance and maintainability.</li>
+          <li>Architected and developed RESTful microservices using Spring Boot, ensuring seamless integration with Apigee for secure API management and gateway connectivity.</li>
+          <li>Implemented and documented API endpoints using Swagger to facilitate easy testing and integration for cross-functional teams.</li>
+          <li>Developed and integrated APIs to connect with external partners including Marketo, Webex, and McGraw Hill.</li>
+          <li>Utilized NoSQL Workbench to design, visualize, and query data models for DynamoDB, while managing document storage in MongoDB.</li>
+          <li>Actively involved in Production Calls, providing technical expertise to identify root causes and implementing rapid issue resolutions for high-priority bugs.</li>
+          <li>Managed CI/CD lifecycle using GitLab and Jenkins to automate builds, review code, and monitor deployments.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">Vanguard</span>
+          <span class="period">October 2019 – March 2021</span>
+        </div>
+        <p class="role-line">Software Developer <span class="location">Malvern, PA</span></p>
+        <ul class="bullets">
+          <li>Designed and developed robust backend APIs using Java and Spring Boot, resolving critical software issues and performance bottlenecks.</li>
+          <li>Executed a major framework upgrade from Angular 8 to Angular 11 and built responsive UI components using Angular Material.</li>
+          <li>Architected the integration of AWS services with Angular applications by creating and configuring ECS (Elastic Container Service) files.</li>
+          <li>Led communication with the offshore team, managing work allocation, performing code reviews, and ensuring project timelines.</li>
+          <li>Automated deployment workflows by configuring and managing Jenkins jobs and utilized GitHub/SourceTree for version control.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="company">Nationwide Insurance</span>
+          <span class="period">April 2018 – October 2019</span>
+        </div>
+        <p class="role-line">Java Developer <span class="location">Columbus, OH</span></p>
+        <ul class="bullets">
+          <li>Developed and maintained the primary Insurance Registering Application, a high-traffic SPA built with Angular and Spring Framework.</li>
+          <li>Implemented secure authentication for external clients using Bearer Tokens.</li>
+          <li>Collaborated closely with the QA team to write comprehensive test cases and provided technical guidance in writing automation scripts.</li>
+          <li>Drove the development of new functional improvements in Angular and integrated Blackboard Training modules within the platform.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>
